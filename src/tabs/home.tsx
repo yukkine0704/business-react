@@ -1,13 +1,12 @@
-import * as React from 'react';
+import React from 'react'
+import { Text } from 'react-native-paper'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-interface ComponentNameProps {};
-
-interface ComponentNameState {};
-
-class home extends React.Component<ComponentNameProps, ComponentNameState> {
-    public render(): JSX.Element {
-        return (<span>Home</span>);
-    }
+export default function Home() {
+  return (
+    <SafeAreaView>
+        <Text>Home</Text>
+    </SafeAreaView>
+    
+  )
 }
-
-export default home;

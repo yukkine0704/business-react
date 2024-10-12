@@ -1,8 +1,8 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { createMaterialBottomTabNavigator } from 'react-native-paper/lib/typescript/react-navigation'
-import home from './tabs/home';
-import about from './tabs/about';
+import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
+import Home from './tabs/home';
+import About from './tabs/about';
 
 
 
@@ -12,16 +12,18 @@ const Tabs = createMaterialBottomTabNavigator(); // Mueve esta línea antes de u
 const TabNavigator = () => {
   return (
     <Tabs.Navigator>
-      <Tabs.Screen name='Home' component={home} />
-      <Tabs.Screen name='About' component={about} />
+      <Tabs.Screen name='Home' component={Home} />
+      <Tabs.Screen name='About' component={About} />
     </Tabs.Navigator>
   );
 };
 
 const Navigator = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name='Home' component={TabNavigator} />
+    <Stack.Navigator screenOptions={{
+        headerShown: false
+    }}>
+      <Stack.Screen name='Start' component={TabNavigator} />
     </Stack.Navigator>
   );
 };
