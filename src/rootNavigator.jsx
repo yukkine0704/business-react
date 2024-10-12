@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
 import Home from './tabs/home';
 import About from './tabs/about';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 
@@ -12,8 +13,20 @@ const Tabs = createMaterialBottomTabNavigator(); // Mueve esta línea antes de u
 const TabNavigator = () => {
   return (
     <Tabs.Navigator>
-      <Tabs.Screen name='Home' component={Home} />
-      <Tabs.Screen name='About' component={About} />
+      <Tabs.Screen name='Home' component={Home} options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: () => (
+            <MaterialCommunityIcons name="home" size={26} />
+          ),
+        }}
+      />
+      <Tabs.Screen name='About' component={About} options={{
+        tabBarLabel: 'Info',
+        tabBarIcon: () =>(
+            <MaterialCommunityIcons name='information' size={26}/>
+        ),
+      }}
+      />
     </Tabs.Navigator>
   );
 };
