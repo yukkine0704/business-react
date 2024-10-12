@@ -14,8 +14,8 @@ export default function About() {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1, // Asegura que SafeAreaView ocupe toda la pantalla
-      justifyContent: 'center', // Centra el contenido verticalmente (opcional)
-      alignItems: 'center', // Centra el contenido horizontalmente (opcional)
+      flex: 1, 
+      justifyContent: 'center', 
+      alignItems: 'center', 
     },
   });
