@@ -4,11 +4,15 @@ import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navig
 import Home from './tabs/home';
 import About from './tabs/about';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Signup from './tabs/signup';
+import { useAuth } from '@clerk/clerk-expo';
 
 
 
 const Stack = createStackNavigator();
-const Tabs = createMaterialBottomTabNavigator(); // Mueve esta línea antes de usar Tabs
+const Tabs = createMaterialBottomTabNavigator(); 
+
+
 
 const TabNavigator = () => {
   return (
@@ -31,11 +35,15 @@ const TabNavigator = () => {
   );
 };
 
+
 const Navigator = () => {
+    const { isSignedIn } = useAuth();
+const initialRouteName = isSignedIn ? 'Start' : 'Signup';
   return (
-    <Stack.Navigator screenOptions={{
+    <Stack.Navigator initialRouteName={initialRouteName} screenOptions={{
         headerShown: false
     }}>
+        <Stack.Screen name='Signup' component={Signup}/>
       <Stack.Screen name='Start' component={TabNavigator} />
     </Stack.Navigator>
   );
